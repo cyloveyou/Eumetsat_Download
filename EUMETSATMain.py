@@ -37,12 +37,14 @@ def multi(url):
 	except:
 		PrintError("Network connection failure Download failure")
 		t = random.randint(20, 60)
-		for _ in trange(t, desc=f"等待{t}秒"):
+		for _ in trange(t, desc=f"wait {t} seconds"):
 			time.sleep(1)
 
 
 if __name__ == '__main__':
 	url_list = ReadProductsFile(products_file_path)
+	stime = time.ctime()
 	PrintRemind("There are {} products in total".format(len(url_list)))
 	with multiprocessing.Pool(multiN) as p:
 		p.map(multi, url_list)
+	PrintRemind("All products have been downloaded,stime:{},etime:{}".format(stime, time.ctime()))
