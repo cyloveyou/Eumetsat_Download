@@ -11,6 +11,7 @@ import time
 
 import requests
 from requests.auth import HTTPBasicAuth
+from tqdm import trange
 
 
 class UserPrint:
@@ -147,7 +148,7 @@ class ProductInfo:
 		temp_file = os.path.join(self.save_param.temp_path, self.product_name)
 		finish_file = os.path.join(self.save_param.finish_path, self.product_name)
 		if os.path.exists(finish_file):
-			UserPrint.PrintAccept(f"{finish_file} existed".center(100, '*'))
+			UserPrint.PrintAccept(f"{finish_file} existed")
 			return True
 		else:
 			UserPrint.PrintRemind(f"{temp_file} downloading")
@@ -156,8 +157,8 @@ class ProductInfo:
 				with requests.get(self.product_url, stream=True, proxies=Proxies, timeout=10) as r:
 					if r.status_code != 200:
 						UserPrint.PrintError("token is invalid, obtain the token again")
-						user.token = user.GetToken(proxies)
-						self.DownloadFile(proxies)
+						self.user_info.token = self.user_info.GetToken(Proxies)
+						self.DownloadFile(Proxies)
 					else:
 						for chunk in r.iter_content(chunk_size=1024 * 4):
 							if chunk:
@@ -166,9 +167,8 @@ class ProductInfo:
 			except Exception as e:
 				UserPrint.PrintError(f"{temp_file} Download failure Because Network connection failure")
 				t = random.randint(20, 60)
-				# for _ in trange(t, desc=f"wait {t} seconds"):
-				# 	time.sleep(1)
-				time.sleep(1)
+				for _ in trange(t, desc=f"wait {t} seconds"):
+					time.sleep(1)
 				self.DownloadFile(Proxies)
 			shutil.move(temp_file, finish_file)
 			UserPrint.PrintAccept(f"{temp_file} save success")
