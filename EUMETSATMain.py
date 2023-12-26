@@ -8,12 +8,12 @@ import multiprocessing
 from ClassEumdac import *
 
 # todo 设置参数
-consumer_key = 'kKJgfhupQTkXbMEMPJ6unbr4mXIa'  # todo 设置key
-consumer_secret = 'FxuQF4mRoM1MVUOWb4bQFq8RRJMa'  # todo 设置secret
+consumer_key = 'xxx'  # todo 设置key
+consumer_secret = 'xxx'  # todo 设置secret
 products_url_path = "./products_url.txt"  # todo 设置产品信息文件保存路径
 products_file_path = "./products_all.txt"  # todo 设置产品信息文件保存路径
 download_path = "./test"  # todo 设置产品下载保存路径
-IPPort = "127.0.0.1:10809"  # todo 设置代理
+IPPort = "xxx"  # todo 设置代理
 multiN = 5  # todo 进程个数
 
 proxies = {
