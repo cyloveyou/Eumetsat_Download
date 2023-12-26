@@ -1,1 +1,2 @@
-https://api.eumetsat.int/data/search-products/1.0.0/os?format=json&pi=EO%3AEUM%3ADAT%3A0834&si=0&c=20&sort=start%2Ctime%2C0&dtstart=2023-03-02T00%3A20%3A00Z&dtend=2023-03-10T00%3A20%3A21Z&geo=POLYGON((113.15%2032.43%2C80.75%2020.55%2C113.69%201.54%2C117.90%2026.70%2C113.15%2032.43))&type=SR_2_WAT___
+
+https://api.eumetsat.int/data/search-products/1.0.0/os?format=json&pi=EO%3AEUM%3ADAT%3AMETOP%3AOSI-104&si=0&c=20&sort=start%2Ctime%2C0&dtstart=2023-12-23T13%3A32%3A00Z&dtend=2023-12-26T13%3A32%3A58Z
